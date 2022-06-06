@@ -1,11 +1,13 @@
 import 'package:get/get.dart';
+import 'package:todo/app/data/models/todo_item_model.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  var todoList = [].obs;
 
-  final count = 0.obs;
   @override
   void onInit() {
+    todoList.add(TodoItemModel.fromJson({"title": "Title", "done": "1"}));
+    todoList.add(TodoItemModel.fromJson({"title": "Title 2", "done": "1"}));
     super.onInit();
   }
 
@@ -19,5 +21,8 @@ class HomeController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  void updateTodo(index, bool value) {
+    todoList[index].done = value ? "1" : "0";
+    todoList.refresh();
+  }
 }
