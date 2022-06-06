@@ -22,7 +22,7 @@ This is just a simple example of a TODO app with GetX and GetX Pattern created u
     
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://user-images.githubusercontent.com/818713/172258640-c333cf6d-66da-4f45-9cc5-947c2792e6d4.png)
 
 
 ## Acknowledgements
