@@ -1,16 +1,43 @@
-# todo
+![visitors](https://visitor-badge.glitch.me/badge?page_id=pinedamg.flutter_getx_todo)
+![null safety](https://img.shields.io/badge/null-safety-blue)
+![flutter version](https://img.shields.io/badge/flutter-3.x-blue)
+![getx version](https://img.shields.io/badge/getx-4.x-blue)
 
-A new Flutter project.
+# Flutter GetX Pattern TODO
 
-## Getting Started
+This is just a simple example of a TODO app with GetX and GetX Pattern created using Get CLI
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- Built using Get Cli
+- Following GetX Pattern
+## Installation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+  git clone git@github.com:pinedamg/flutter_getx_todo.git
+  cd flutter_getx_todo
+  flutter pub get
+  flutter run
+```
+    
+## Screenshots
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+## Acknowledgements
+
+ - [Flutter](https://github.com/flutter/flutter)
+ - [GetX](https://github.com/jonataslaw/getx)
+ - [GetX Pattern](https://github.com/kauemurakami/getx_pattern)
+ - [GetX Cli](https://github.com/jonataslaw/get_cli)
+
+
+## Feedback
+
+If you have any feedback, please reach out to us at pinedamg@gmail.com
+
+
+## 🚀 About Me
+I'm a full stack developer...
+
