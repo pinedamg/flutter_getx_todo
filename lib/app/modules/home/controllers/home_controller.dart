@@ -1,15 +1,21 @@
 import 'package:get/get.dart';
+
 import 'package:todo/app/data/models/todo_item_model.dart';
+import 'package:todo/app/data/services/storage/repository.dart';
 import 'package:todo/app/modules/home/views/home_view.dart';
 
 class HomeController extends GetxController {
-  var todoList = [].obs;
+  TodoRepository todoRepository;
+  final todoList = <TodoItemModel>[].obs;
+  HomeController({
+    required this.todoRepository,
+  });
 
   @override
   void onInit() {
-    todoList.add(TodoItemModel.fromJson({"title": "Title", "done": "1"}));
-    todoList.add(TodoItemModel.fromJson({"title": "Title 2", "done": "1"}));
     super.onInit();
+    todoList.assignAll(todoRepository.readTodos());
+    ever(todoList, (_) => todoRepository.writeTodos(todoList));
   }
 
   @override

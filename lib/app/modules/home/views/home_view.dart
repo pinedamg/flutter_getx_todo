@@ -15,25 +15,25 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('GetX TODO'),
-          centerTitle: true,
-          actions: [
-            PopupMenuButton(
-              onSelected: (status) => controller.filterList(status),
-              icon: Icon(Icons.filter_list),
-              itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-                const PopupMenuItem(
-                    child: Text('All'), value: ListStatuses.All),
-                const PopupMenuItem(
-                    child: Text('Done'), value: ListStatuses.Done),
-                const PopupMenuItem(
-                    child: Text('UnDone'), value: ListStatuses.UnDone)
-              ],
-            )
-          ],
-        ),
-        body: SafeArea(child: Center(
+      appBar: AppBar(
+        title: Text('GetX TODO'),
+        centerTitle: true,
+        actions: [
+          PopupMenuButton(
+            onSelected: (status) => controller.filterList(status),
+            icon: Icon(Icons.filter_list),
+            itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+              const PopupMenuItem(child: Text('All'), value: ListStatuses.All),
+              const PopupMenuItem(
+                  child: Text('Done'), value: ListStatuses.Done),
+              const PopupMenuItem(
+                  child: Text('UnDone'), value: ListStatuses.UnDone)
+            ],
+          )
+        ],
+      ),
+      body: SafeArea(
+        child: Center(
           child: Obx(() {
             return ListView.builder(
               itemCount: controller.todoList.length,
@@ -48,11 +48,13 @@ class HomeView extends GetView<HomeController> {
               },
             );
           }),
-        )),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () => controller.todoList
-              .add(TodoItemModel.fromJson({"title": "Title", "done": "1"})),
-        ));
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () =>
+            controller.todoList.add(TodoItemModel(title: "Title", done: "2")),
+      ),
+    );
   }
 }

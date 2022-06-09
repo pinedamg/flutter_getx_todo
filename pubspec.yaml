@@ -9,6 +9,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: 4.6.5
   string_validator: 0.3.0
+  get_storage: 2.0.3
   flutter: 
     sdk: flutter
 
