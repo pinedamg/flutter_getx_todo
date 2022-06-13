@@ -14,7 +14,13 @@ class TodoProvider {
     return todos;
   }
 
-  void writeTodo(List<TodoItemModel> todos) {
+  void writeTodos(List<TodoItemModel> todos) {
     _storage.write(todoKey, jsonEncode(todos));
+  }
+
+  void addTodo(String title, String done) {
+    var todos = readTodos();
+    todos.add(TodoItemModel(title: title, done: done));
+    writeTodos(todos);
   }
 }

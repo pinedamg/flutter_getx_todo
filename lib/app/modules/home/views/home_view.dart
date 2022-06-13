@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:string_validator/string_validator.dart';
@@ -23,11 +25,9 @@ class HomeView extends GetView<HomeController> {
             onSelected: (status) => controller.filterList(status),
             icon: Icon(Icons.filter_list),
             itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-              const PopupMenuItem(child: Text('All'), value: ListStatuses.All),
-              const PopupMenuItem(
-                  child: Text('Done'), value: ListStatuses.Done),
-              const PopupMenuItem(
-                  child: Text('UnDone'), value: ListStatuses.UnDone)
+              PopupMenuItem(child: Text('All'), value: ListStatuses.All),
+              PopupMenuItem(child: Text('Done'), value: ListStatuses.Done),
+              PopupMenuItem(child: Text('UnDone'), value: ListStatuses.UnDone)
             ],
           )
         ],
@@ -41,7 +41,8 @@ class HomeView extends GetView<HomeController> {
                 return Container(
                   child: CheckboxListTile(
                     title: Text('${controller.todoList[index].title}'),
-                    value: toBoolean(controller.todoList[index].done),
+                    value:
+                        toBoolean(controller.todoList[index].done.toString()),
                     onChanged: (value) => controller.updateTodo(index, value!),
                   ),
                 );
@@ -52,8 +53,7 @@ class HomeView extends GetView<HomeController> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () =>
-            controller.todoList.add(TodoItemModel(title: "Title", done: "2")),
+        onPressed: () => controller.addTodo("title ", "0"),
       ),
     );
   }

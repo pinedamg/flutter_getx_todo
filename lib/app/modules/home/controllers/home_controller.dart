@@ -15,7 +15,6 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
     todoList.assignAll(todoRepository.readTodos());
-    ever(todoList, (_) => todoRepository.writeTodos(todoList));
   }
 
   @override
@@ -33,18 +32,21 @@ class HomeController extends GetxController {
     todoList.refresh();
   }
 
+  void addTodo(String title, String done) {
+    TodoItemModel todoItem = TodoItemModel(title: title, done: done);
+    todoRepository.addTodo(todoItem);
+    todoList.add(todoItem);
+  }
+
   filterList(status) {
+    todoList.assignAll(todoRepository.readTodos());
     switch (status) {
-      case ListStatuses.All:
-        todoList.assignAll(todoList.toList());
-        break;
       case ListStatuses.Done:
-        todoList.assignAll(todoList.where((item) => item.done == "1").toList());
+        todoList.retainWhere((item) => item.done == "1");
         break;
       case ListStatuses.UnDone:
-        todoList.assignAll(todoList.where((item) => item.done == "0").toList());
+        todoList.retainWhere((item) => item.done == "0");
         break;
     }
-    todoList.refresh();
   }
 }

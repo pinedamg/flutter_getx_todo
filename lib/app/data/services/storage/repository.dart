@@ -10,25 +10,14 @@ class TodoRepository {
 
   List<TodoItemModel> readTodos() => todoProvider.readTodos();
 
-  void writeTodos(List<TodoItemModel> todos) => todoProvider.writeTodo(todos);
+  void writeTodos(List<TodoItemModel> todos) => todoProvider.writeTodos(todos);
 
-  // getAll() {
-  //   return api.getAll();
-  // }
+  addTodo(TodoItemModel todoItem) =>
+      todoProvider.addTodo(todoItem.title, todoItem.done);
 
-  // getId(id) {
-  //   return api.getId(id);
-  // }
-
-  // delete(id) {
-  //   return api.delete(id);
-  // }
-
-  // edit(obj) {
-  //   return api.edit(obj);
-  // }
-
-  // add(obj) {
-  //   return api.add(obj);
-  // }
+  void remoteTodo(int index) {
+    var todos = readTodos();
+    todos.removeAt(index);
+    writeTodos(todos);
+  }
 }

@@ -1,12 +1,11 @@
 import 'dart:convert';
 
 class TodoItemModel {
-  String? title;
-  String? done;
-
+  String title;
+  String done;
   TodoItemModel({
-    this.title,
-    this.done,
+    this.title = '',
+    this.done = '',
   });
 
   TodoItemModel copyWith({
@@ -28,8 +27,8 @@ class TodoItemModel {
 
   factory TodoItemModel.fromMap(Map<String, dynamic> map) {
     return TodoItemModel(
-      title: map['title'],
-      done: map['done'],
+      title: map['title'] ?? '',
+      done: map['done'] ?? '',
     );
   }
 
